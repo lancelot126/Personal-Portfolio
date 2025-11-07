@@ -42,7 +42,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 255, 0, 0;
+  --bs-primary-rgb: 226,30,128;
   --bs-secondary-rgb: 226, 30, 128;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
@@ -62,7 +62,7 @@
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-bg: #fff;
+  --bs-body-bg: #fceac7;
   --bs-border-width: 1px;
   --bs-border-style: solid;
   --bs-border-color: #dee2e6;
@@ -77,6 +77,7 @@
   --bs-link-hover-color: #1826c2;
   --bs-code-color: #190e13;
   --bs-highlight-bg: #fff3cd;
+  --bs-card-color: #000;
 }
 
 *,
@@ -99,7 +100,7 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
+  background-color: var(--bs-body-bg) !important;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -610,7 +611,9 @@ progress {
   max-width: 100%;
   height: auto;
 }
-
+.nav-color {
+  background-color: #f6d8a0
+}
 .figure {
   display: inline-block;
 }
@@ -2845,19 +2848,19 @@ textarea.form-control-lg {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #1e30f3;
-  --bs-btn-border-color: #1e30f3;
+  --bs-btn-bg: #e21e80;
+  --bs-btn-border-color: #e21e80;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #1a29cf;
-  --bs-btn-hover-border-color: #1826c2;
+  --bs-btn-hover-bg: #cb3882;
+  --bs-btn-hover-border-color: #cb3882;
   --bs-btn-focus-shadow-rgb: 64, 79, 245;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #1826c2;
-  --bs-btn-active-border-color: #1724b6;
+  --bs-btn-active-bg: #e21e80;
+  --bs-btn-active-border-color: #e21e80;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #1e30f3;
-  --bs-btn-disabled-border-color: #1e30f3;
+  --bs-btn-disabled-bg: #e21e80;
+  --bs-btn-disabled-border-color: #e21e80;
 }
 
 .btn-secondary {
@@ -3728,7 +3731,7 @@ textarea.form-control-lg {
 .navbar {
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0.5rem;
-  --bs-navbar-color: rgba(0, 0, 0, 0.55);
+  --bs-navbar-color: rgb(0, 0, 0);
   --bs-navbar-hover-color: rgba(0, 0, 0, 0.7);
   --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
   --bs-navbar-active-color: rgba(0, 0, 0, 0.9);
@@ -4162,7 +4165,7 @@ textarea.form-control-lg {
   --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
   --bs-card-cap-color: ;
   --bs-card-height: ;
-  --bs-card-color: ;
+  --bs-card-color: #000;
   --bs-card-bg: #fff;
   --bs-card-img-overlay-padding: 1rem;
   --bs-card-group-margin: 0.75rem;
@@ -4172,7 +4175,7 @@ textarea.form-control-lg {
   min-width: 0;
   height: var(--bs-card-height);
   word-wrap: break-word;
-  background-color: var(--bs-card-bg);
+  background-color: var(--bs-card-colors);
   background-clip: border-box;
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
@@ -8162,6 +8165,15 @@ textarea.form-control-lg {
 
 .text-uppercase {
   text-transform: uppercase !important;
+  text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000,
+                -1px 0 0 #000, /* Left */
+                1px 0 0 #000,  /* Right */
+                0 -1px 0 #000, /* Top */
+                0 1px 0 #000;  /* Bottom */
 }
 
 .text-capitalize {
@@ -8185,7 +8197,11 @@ textarea.form-control-lg {
 /* rtl:end:remove */
 .text-primary {
   --bs-text-opacity: 1;
-  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+  color: rgba(0, 0, 0, var(--bs-text-opacity)) !important;
+}
+
+.text-color {
+  color: #e21e80;
 }
 
 .text-secondary {
@@ -8240,7 +8256,8 @@ textarea.form-control-lg {
 
 .text-muted {
   --bs-text-opacity: 1;
-  color: #6c757d !important;
+  color: #000 !important;
+  font-size: 20px;
 }
 
 .text-black-50 {
@@ -8306,7 +8323,7 @@ textarea.form-control-lg {
 
 .bg-light {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+  background-color: (var(--bs-body-bg));
 }
 
 .bg-dark {
@@ -11556,11 +11573,11 @@ html {
 
 .bg-gradient-primary-to-secondary {
   background: #1e30f3;
-  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+  background: linear-gradient(135deg, rgb(240 223 67) 0%, #e21e80 100%);
 }
 
 .text-gradient {
-  background: -webkit-linear-gradient(315deg, #1e30f3 0%, #e21e80 100%);
+  background: -webkit-linear-gradient(315deg, rgb(240 223 67) 0%, #e21e80 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -11588,12 +11605,12 @@ html {
   max-width: 40rem;
 }
 .profile-img {
-  border-bottom-left-radius: 115px;
-  border-bottom-right-radius: 105px;
+  border-bottom-left-radius: 130px;
+  border-bottom-right-radius: 150px;
 }
 .profile .profile-img {
   height: 80vw;
-  max-height: 45rem;
+  max-height: 38rem;
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -11615,7 +11632,7 @@ html {
   top: 6.05vw;
 }
 .profile .dots-2 svg {
-  fill: #1e30f3;
+  fill: #e21e80;
 }
 .profile .dots-3 {
   position: absolute;
@@ -11633,7 +11650,7 @@ html {
   bottom: 4vw;
 }
 .profile .dots-4 svg {
-  fill: #1e30f3;
+  fill: #e21e80;
 }
 
 @media (min-width: 576px) {

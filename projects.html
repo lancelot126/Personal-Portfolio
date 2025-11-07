@@ -7,7 +7,7 @@
         <meta name="author" content="" />
         <title>Lance Do</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/png" href="assets/favicon.png" />
         <!-- Custom Google font-->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,11 +16,26 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <script>
+            // 1. Get the current date object
+            const date = new Date();
+            
+            // 2. Extract the full year (e.g., 2025)
+            const currentYear = date.getFullYear();
+            
+            // 3. Find the HTML element by its ID
+            const yearElement = document.getElementById('currentYear');
+            
+            // 4. Check if the element exists and then set its content
+            if (yearElement) {
+                yearElement.textContent = currentYear;
+            }
+        </script>
     </head>
     <body class="d-flex flex-column h-100 bg-light">
         <main class="flex-shrink-0">
             <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+            <nav class="navbar navbar-expand-lg navbar-light nav-color py-3">
                 <div class="container px-5">
                     <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Lance Do</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -34,8 +49,8 @@
                 </div>
             </nav>
             <!-- Projects Section-->
-            <section class="py-5">
-                <div class="container px-5 mb-5">
+            <section class="py-5 bg-light">
+                <div class="container px-5 mb-5 bg-light">
                     <div class="text-center mb-5">
                         <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
                     </div>
@@ -49,7 +64,7 @@
                                             <h2 class="fw-bolder">Course Load</h2>
                                             <p>A course overview website created using React.js, Next.js, and Tailwind CSS to dynamically create components to the website.</p>
                                         </div>
-                                        <img class="img-fluid" src="./assets/courseload_page-0001.jpg" alt="..." />
+                                        <img class="img-fluid" src="./assets/courseload_page-0001.jpg" alt="..." width="400" height="400" />
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +76,7 @@
                                             <h2 class="fw-bolder">ACME Rockets</h2>
                                             <p>A static webpage primarily built using HTML and Tailwind CSS for the purpose of creating an advertising app.</p>
                                         </div>
-                                        <img class="img-fluid" src="https://acme-rockets-uees.onrender.com/img/rocketdab.png" alt="..." />
+                                        <img class="img-fluid" src="/assets/rocketdab.webp" alt="..." width="400" height="400"/>
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +88,7 @@
                                             <h2 class="fw-bolder">Little Taco Shop</h2>
                                             <p>Created an organized website foundation by using standard HTML5 elements (forms, sections, headers, footers) to ensure high accessibility.</p>
                                         </div>
-                                        <img class="img-fluid" src="https://little-taco-shop-sigma.vercel.app/img/tacos_and_drink_1000x667.png" alt="..." />
+                                        <img class="img-fluid" src="/assets/tacos.png" alt="..." width="400" height="400"/>
                                     </div>
                                 </div>
                             </div>
@@ -83,10 +98,10 @@
             </section>
         </main>
         <!-- Footer-->
-        <footer class="bg-white py-4 mt-auto">
+        <footer class="nav-color py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto mx-auto"><div class="small m-0">Copyright &copy; Lance Do 2025</div></div>
+                    <div class="col-auto mx-auto"><div class="small m-0">Copyright &copy; Lance Do <span id="currentYear"></span></div></div>
                 </div>
             </div>
         </footer>
