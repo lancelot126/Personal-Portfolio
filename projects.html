@@ -17,19 +17,15 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <script>
-            // 1. Get the current date object
-            const date = new Date();
-            
-            // 2. Extract the full year (e.g., 2025)
-            const currentYear = date.getFullYear();
-            
-            // 3. Find the HTML element by its ID
-            const yearElement = document.getElementById('currentYear');
-            
-            // 4. Check if the element exists and then set its content
-            if (yearElement) {
-                yearElement.textContent = currentYear;
-            }
+            // Populate the footer year after the DOM is ready so the #currentYear element exists
+            document.addEventListener('DOMContentLoaded', function () {
+                const date = new Date();
+                const currentYear = date.getFullYear();
+                const yearElement = document.getElementById('currentYear');
+                if (yearElement) {
+                    yearElement.textContent = currentYear;
+                }
+            });
         </script>
     </head>
     <body class="d-flex flex-column h-100 bg-light">

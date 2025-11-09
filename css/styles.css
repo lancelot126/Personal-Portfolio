@@ -79,6 +79,35 @@
   --bs-highlight-bg: #fff3cd;
   --bs-card-color: #000;
 }
+/* Fix: prevent project images from being cropped on small (iPhone) screens
+   - Stack the text and image vertically on narrow viewports
+   - Force images to fit their container and use object-fit: contain so they aren't cropped
+*/
+@media (max-width: 420px) {
+  .card .d-flex.align-items-center {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card .d-flex.align-items-center img.img-fluid {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block;
+    margin: 0; /* remove side margins when stacked */
+  }
+
+  /* reduce big paddings so stacked layout has comfortable spacing */
+  .card .p-5 {
+    padding: 1rem !important;
+  }
+
+  /* allow card overflow to remain but the contained image will fit, preventing cropping */
+  .card.overflow-hidden {
+    overflow: hidden;
+  }
+}
 
 *,
 *::before,
@@ -11751,5 +11780,88 @@ html {
   .profile .dots-4 {
     width: 1.5vw;
     left: -2vw;
+  }
+}
+
+@media (min-width: 2000px) {
+  .profile {
+    height: 30vw;
+    width: 30vw;
+  }
+  .profile .profile-img {
+    height: 30vw;
+  }
+  .profile .dots-1 {
+    width: 1vw;
+    right: 1.125vw;
+  }
+  .profile .dots-2 {
+    width: 1vw;
+    right: -2vw;
+  }
+  .profile .dots-3 {
+    width: 1vw;
+    left: 1.125vw;
+  }
+  .profile .dots-4 {
+    width: 1vw;
+    left: -2vw;
+  }
+}
+@media (min-width: 3500px) {
+  .profile {
+    height: 30vw;
+    width: 30vw;
+  }
+  .profile .profile-img {
+    height: 30vw;
+  }
+  .profile .dots-1 {
+    width: .75vw;
+    right: 1vw;
+  }
+  .profile .dots-2 {
+    width: .75vw;
+    right: -1.5vw;
+  }
+  .profile .dots-3 {
+    width: .75vw;
+    left: 1vw;
+  }
+  .profile .dots-4 {
+    width: .75vw;
+    left: -1.5vw;
+  }
+}
+@media (min-width: 4800px) {
+  .profile {
+    height: 30vw;
+    width: 30vw;
+  }
+  .profile .profile-img {
+    height: 30vw;
+  }
+  .profile .dots-1 {
+    width: .4vw;
+    right: .8vw;
+  }
+  .profile .dots-2 {
+    width: .4vw;
+    right: -.8vw;
+  }
+  .profile .dots-3 {
+    width: .4vw;
+    left: 1.25vw;
+  }
+  .profile .dots-4 {
+    width: .4vw;
+    left: -.8vw;
+  }
+}
+/* Make resume download button shorter on normal (desktop) screens while keeping it full-width on phones */
+@media (min-width: 576px) {
+  .resume-download {
+    max-width: 220px; /* cap width on larger screens */
+    white-space: nowrap; /* prevent wrapping so it stays compact */
   }
 }
